@@ -8,11 +8,11 @@
 //	public static var astar:Astar;
 //
 //	public static function init(_xsize:int, _ysize:int) {
-//        
+//
 //        // record grid size
-//        xsize = _xsize; 
+//        xsize = _xsize;
 //        ysize = _ysize;
-//        
+//
 //		// initialize 2d array of cells
 //		arr = new Cell[xsize, ysize];
 //        for (var y:int  = 0; y < ysize; y++) {
@@ -20,14 +20,14 @@
 //            	arr[x, y] = new Cell("empty", x, 0, y, true);
 //            }
 //        }
-//        
+//
 //        // initialize  Astar c# plugin
 //        astar = new Astar(arr);
-//        
+//
 //		// initialization log
 //        print("InitGrid " + xsize + "," + ysize + ' ' + arr + ' ' + astar);
 //    }
-//    
+//
 //    public function getCell (x: int, y:int): Cell {
 //    	return arr[x, y];
 //    }

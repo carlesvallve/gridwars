@@ -4,16 +4,16 @@
 
 class Obstacle extends Entity {
 
-    function init (parent:Transform, layer:String, num:int, name:String, scale:Vector3): void { 
+    function init (parent:Transform, layer:String, num:int, name:String, scale:Vector3): void {
     	//initialize ent superclass
-        super.init(parent, layer, num, name, Vector3(1,1,1)); //Vector3(1,1,1)); // scale   
-        
+        super.init(parent, layer, num, name, Vector3(1,1,1)); //Vector3(1,1,1)); // scale
+
         //transform.position.y = 0;//
-        
+
         //World.terrain.makeCube(gameObject, scale.y);
-        
-        
+
+
 
     }
-    
+
 }    

@@ -4,29 +4,29 @@ class Weapon {
 
 	var go:GameObject; //reference to the weapon model
     var entity:Entity; //reference to the weapon Entity
-    
+
     var rot:float; // increment for weapon auto-rotation
-    
-    var id:String; 
-    var type:String; 
-    var pose:String; 
-    var wav:String; 
-    
+
+    var id:String;
+    var type:String;
+    var pose:String;
+    var wav:String;
+
     var range:float;
     var accuracy:float;
     var speed:float;
     var recoil:float;
     var weight:float;
-    
+
     var cost:int;
     var damage:int;
     var ammo:int;
     var ammoMax:int;
-    
+
     var burstMode:boolean;
     var burstMax:int;
     var burstNum:int = 0;
-    
+
 
     function Weapon(id:String) {
     	// set weapon properties by id
@@ -35,11 +35,11 @@ class Weapon {
         this.id = id;
         ammoMax = ammo;
     }
-    
-    function getProps(id:String):void { 
+
+    function getProps(id:String):void {
 
         switch (id){
-            
+
             //Melee
             case "Empty":
                  type = "meleeWeapons"; pose="melee";
@@ -95,7 +95,7 @@ class Weapon {
                 accuracy = .5f; range = 6f; damage = 4; burstMax = 1; speed = .2f; ammo = 7; weight = 0f; recoil = 10f; wav = "shotA";
                 cost = 8;
                 break;
-            case "Handgun": 
+            case "Handgun":
                 type = "handGuns"; pose="gun";
                 accuracy = .5f; range = 6f; damage = 4; burstMax=1; speed = .2f; ammo = 7; weight = 0f; recoil = 10f; wav="shotA";
                 cost = 8;
@@ -125,7 +125,7 @@ class Weapon {
                 accuracy = .5f; range = 6f; damage = 5; burstMax=1; speed = .2f; ammo = 6; weight = 0f; recoil = 10f; wav="shotA";
                 cost = 8;
                 break;
-  
+
             //Submachine Guns
             case "MP5":
                 type = "subMachineGuns"; pose="rifle";
@@ -159,12 +159,12 @@ class Weapon {
                 accuracy = .8f; range = 16f; damage = 6; burstMax=1; speed = .3f; ammo = 9; weight = 0f; recoil = 2f; wav="shotA";
                 cost = 9;
                 break;
-            
+
             //Shotguns
             case "Shotgun":
                 type = "shotguns"; pose="rifle";
                 accuracy = .4f; range = 5f; damage = 8; burstMax=1; speed = .4f; ammo = 2; weight = 0f; recoil = 2f; wav="shotA";
-                cost = 10; 
+                cost = 10;
                 break;
             case "SPAS12":
                 type = "shotguns"; pose="rifle";
@@ -204,7 +204,7 @@ class Weapon {
                 type = "heavyWeapons"; pose="rifle";
                 accuracy = .4f; range = 16f; damage = 12; burstMax=1; speed = .5f; ammo = 1; weight = 7f; ; recoil = 2f; wav="shotA";
                 cost = 12;
-                break;  
+                break;
         }
     }
 

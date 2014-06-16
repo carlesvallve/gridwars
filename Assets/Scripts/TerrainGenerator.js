@@ -56,7 +56,7 @@ class TerrainGenerator extends MonoBehaviour {
 
 		//lacunarity = 1.909066; h = 0.4; octaves = 6.861938; scale = 0.01044309; offset = 0.03951747;
 
-		//h = -0.4; 
+		//h = -0.4;
 		offset = 0.0;
 		print('lacunarity:' + lacunarity + ' h:' + h + ' octaves:' + octaves + ' scale:' + scale + ' offset:' + offset);
 
@@ -100,7 +100,7 @@ class TerrainGenerator extends MonoBehaviour {
 
 
 	public function createRandomTerrain() {
-		heightmap = generateHeightmap(Vector3(width,30,height)); 
+		heightmap = generateHeightmap(Vector3(width,30,height));
 		var mesh:Mesh = gameObject.AddComponent(MeshFilter).mesh;
 		setMeshVertices(mesh);
 		setMeshTriangles(mesh);
@@ -110,7 +110,7 @@ class TerrainGenerator extends MonoBehaviour {
 	}
 
 	public function initRandomTerrain() {
-		heightmap = generateHeightmap(Vector3(width,30,height)); 
+		heightmap = generateHeightmap(Vector3(width,30,height));
 		var mesh:Mesh = gameObject.GetComponent(MeshFilter).mesh;
 		setMeshVertices(mesh);
 		updateMesh(mesh);
@@ -140,7 +140,7 @@ class TerrainGenerator extends MonoBehaviour {
 		initMaterial(gameObject, materialName, true);
 
 		// set texture
-		paintSlopes(width, height);	
+		paintSlopes(width, height);
 	}
 
 
@@ -234,7 +234,7 @@ class TerrainGenerator extends MonoBehaviour {
 		go.renderer.material.SetTextureScale("_MainTex2", new Vector2((width-1) * scale / 3.0, (height-1) * scale / 3.0));
 		go.renderer.material.SetTextureScale("_MainTex3", new Vector2((width-1) * scale / 9.0, (height-1) * scale / 9.0));
 		go.renderer.material.SetTextureScale("_MainTex4", new Vector2((width-1) * scale / 3.0, (height-1) * scale / 3.0));
-		go.renderer.material.SetTextureScale("_BumpMap", new Vector2((width-1) * scale / 3.0, (height-1) * scale / 3.0));	
+		go.renderer.material.SetTextureScale("_BumpMap", new Vector2((width-1) * scale / 3.0, (height-1) * scale / 3.0));
 	}
 
 
@@ -258,9 +258,9 @@ class TerrainGenerator extends MonoBehaviour {
 		    for(var y:int = 0; y < size.z; y++){
 				//vertical raycast on each cell's position
 				var p:Vector3 = new Vector3(.5 + x,32, .5 + y);
-				var ray:Ray = new Ray (p, -Vector3.up); 
+				var ray:Ray = new Ray (p, -Vector3.up);
                 var hit:RaycastHit = new RaycastHit() ;
-				if (Physics.Raycast (ray, hit, 1000)) { //out 
+				if (Physics.Raycast (ray, hit, 1000)) { //out
 					//get cell slope
 					var proj:Vector3 = Vector3.forward - (Vector3.Dot(Vector3.forward, hit.normal)) * hit.normal;
 					var rot:Quaternion = Quaternion.LookRotation(proj, hit.normal);
@@ -282,9 +282,9 @@ class TerrainGenerator extends MonoBehaviour {
 
 		// re-paint alpha with a gray value
 		var pixels : Color[] = tex.GetPixels();
-        for (var i : int = 0; i< pixels.Length; ++i) { 
-        	var pixel = pixels[i]; 
-    		pixel.a = (pixel.r + pixel.g + pixel.b) / 3.0f; 
+        for (var i : int = 0; i< pixels.Length; ++i) {
+        	var pixel = pixels[i];
+    		pixel.a = (pixel.r + pixel.g + pixel.b) / 3.0f;
         	tex.SetPixels(pixels);
         }
 
@@ -292,7 +292,7 @@ class TerrainGenerator extends MonoBehaviour {
 	    tex.Apply();
 
 	    //renderer.material.SetTexture(" _MainTex",tex);
-	    renderer.material.SetTexture("_Mask",tex); 
+	    renderer.material.SetTexture("_Mask",tex);
     }
 
 
@@ -308,7 +308,7 @@ class TerrainGenerator extends MonoBehaviour {
 		var plane:GameObject = new GameObject('Plane');
 		plane.transform.position = Vector3(0, -1.2, 0);
 
-		// create  mesh 
+		// create  mesh
 		var mf: MeshFilter = plane.AddComponent(MeshFilter);
 		var mesh:Mesh = mf.mesh;
 
@@ -356,8 +356,8 @@ class TerrainGenerator extends MonoBehaviour {
 	private function reverseNormals (mesh:Mesh): void {
 		// reverse normals
 		var normals:Vector3[] = mesh.normals;
-		for (var i:int = 0; i<normals.length; i++) { 
-			normals[i] = -normals[i]; 
+		for (var i:int = 0; i<normals.length; i++) {
+			normals[i] = -normals[i];
 		}
 		mesh.normals = normals;
 
@@ -437,7 +437,7 @@ class TerrainGenerator extends MonoBehaviour {
 		//var v:Vector2 = Vector2(0.333, 0.333);
 		//go.renderer.material.SetTextureScale("_MainTex", v);
 		//go.renderer.material.SetTextureScale("_MainTex2", v);
-		//go.renderer.material.SetTextureScale("_BumpMap", v);	
+		//go.renderer.material.SetTextureScale("_BumpMap", v);
 	}
 
 
@@ -476,7 +476,7 @@ class TerrainGenerator extends MonoBehaviour {
 
 		var i = 0;
 		for (var mf : MeshFilter in meshFilters) {;
-			combine[i].mesh = mf.sharedMesh; 
+			combine[i].mesh = mf.sharedMesh;
 			combine[i].transform = mf.transform.localToWorldMatrix;
 			mf.gameObject.SetActive(true); //active = true;
 			i++;
@@ -494,10 +494,10 @@ class TerrainGenerator extends MonoBehaviour {
 		var mc:MeshCollider = obj.GetComponent('MeshCollider') as MeshCollider;
 	    if(mc) {
 	    	mc.sharedMesh = null;
-			mc.sharedMesh = mesh;	
+			mc.sharedMesh = mesh;
 		} else {
 			mc = obj.AddComponent('MeshCollider');
-			mc.sharedMesh = mesh;	
+			mc.sharedMesh = mesh;
 		}
 
 		obj.renderer.enabled = false;
