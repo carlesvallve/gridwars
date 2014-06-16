@@ -636,7 +636,7 @@ static public class Voxelization {
 			max = gameObj.renderer.bounds.max;
 		}
 		
-		for (var i = 0; i < gameObj.transform.GetChildCount(); ++i) {
+		for (var i = 0; i < gameObj.transform.childCount; ++i) {
 			var childObj = gameObj.transform.GetChild(i).gameObject;
 			var childTotalBounds = GetTotalBoundsOfGameObject(childObj);
 			min = Voxelization.MinVectorComponents(min, childTotalBounds.min);
@@ -649,7 +649,7 @@ static public class Voxelization {
 	
 	public function GetChildrenWithMesh(gameObj : GameObject) : Array {
 		var ret = new Array();
-		for (var i = 0; i < gameObj.transform.GetChildCount(); ++i) {
+		for (var i = 0; i < gameObj.transform.childCount; ++i) {
 			var childObj = gameObj.transform.GetChild(i).gameObject;
 			if (childObj.renderer) {
 				ret.Push(childObj);
