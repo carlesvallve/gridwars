@@ -12,7 +12,7 @@ public var pos:Vector3 = Vector3(0,0,0);
 
 function init() {
 	// set center at the center of the world
-	center = Vector3(-.5 + World.terrain.width/2, 0 , -.5 + World.terrain.height/2);
+	center = Vector3(-.5 + World.terrain.width/2, -6 , -.5 + World.terrain.height/2);
 	transform.position = center;
 
 	// set sun light at given position
